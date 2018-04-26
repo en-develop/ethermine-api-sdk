@@ -7,5 +7,7 @@ namespace ethermine;
  */
 class EthermineApi
 {
-
+    public function __construct()
+    {
+    }
 }
