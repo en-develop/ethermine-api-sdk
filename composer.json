@@ -1,0 +1,19 @@
+{
+    "name": "en-develop/ethermine-sdk",
+    "authors": [
+        {
+            "name": "Evgenii",
+            "email": "evgeny.nikitin1991@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "~5.3|~6.0",
+        "guzzlehttp/psr7": "1.2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ethermine\\": "lib/"
+        },
+        "files": ["lib/test.php"]
+    }
+}
