@@ -5,35 +5,46 @@ namespace ethermine\api;
 /**
  * Class Pool
  */
-class Pool
+class Pool extends HttpApi
 {
-    private $endPointUrl;
-
+    /**
+     * Pool constructor.
+     * @param $endPointUrl
+     */
     public function __construct($endPointUrl)
     {
         $this->endPointUrl = $endPointUrl;
     }
 
     /**
-     *
+     * @return mixed
      */
     public function basicPoolStats()
     {
-        return 'basicPoolStats';
+        return $this->get('/poolStats');
     }
 
+    /**
+     * @return mixed
+     */
     public function minedBlockStats()
     {
-        return 'minedBlockStats';
+        return $this->get('/blocks/history');
     }
 
+    /**
+     * @return mixed
+     */
     public function networkStatistics()
     {
-        return 'networkStatistics';
+        return $this->get('/networkStats');
     }
 
+    /**
+     * @return mixed
+     */
     public function serverHashrateStats()
     {
-        return 'serverHashrateStats';
+        return $this->get('/servers/history');
     }
 }

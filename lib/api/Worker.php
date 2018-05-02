@@ -5,7 +5,7 @@ namespace ethermine\api;
 /**
  * Class Worker
  */
-class Worker
+class Worker extends HttpApi
 {
     /**
      * Miner address
@@ -13,11 +13,10 @@ class Worker
      */
     private $miner;
 
-    private $endPoint;
-
-    public function __construct($miner, $endPoint)
+    public function __construct($miner, $endPointUrl)
     {
         $this->miner = $miner;
+        $this->endPointUrl = $endPointUrl;
     }
 
     /**
@@ -25,7 +24,9 @@ class Worker
      */
     public function allWorkerStatistics()
     {
-        return 'allWorkerStatistics';
+        $url = sprintf('/miner/%s/workers', $this->miner);
+
+        return $this->get($url);
     }
 
     /**
@@ -34,7 +35,9 @@ class Worker
      */
     public function individualHistoricalWorkerStatistics($worker)
     {
-        return 'individualHistoricalWorkerStatistics: ' . $worker;
+        $url = sprintf('/miner/%s/worker/%s1/history', $this->miner, $worker);
+
+        return $this->get($url);
     }
 
     /**
@@ -43,7 +46,9 @@ class Worker
      */
     public function individualWorkerStatistics($worker)
     {
-        return 'individualHistoricalWorkerStatistics: ' . $worker;
+        $url = sprintf('/miner/%s/worker/%s1/currentStats', $this->miner, $worker);
+
+        return $this->get($url);
     }
 
     /**
@@ -51,6 +56,8 @@ class Worker
      */
     public function workerMonitoring()
     {
-        return 'workerMonitoring';
+        $url = sprintf('/miner/%s/workers/monitor', $this->miner);
+
+        return $this->get($url);
     }
 }

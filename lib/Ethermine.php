@@ -22,9 +22,10 @@ class Ethermine
      */
     private $endPointUrl;
 
-    public function __construct($miner, $endPointUrl = 'https://api.ethermine.org/')
+    public function __construct($miner, $endPointUrl = 'https://api.ethermine.org')
     {
         $this->miner = $miner;
+        $this->endPointUrl = $endPointUrl;
     }
 
     /**
